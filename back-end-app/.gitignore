@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build / runtime
+dist/
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime uploaded data (potentially sensitive)
+uploads/clients/*
+uploads/transformations/*
+!uploads/clients/.gitkeep
+!uploads/transformations/.gitkeep
+
+# OS / IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secret files
+*.pem
+*.key
+*.p12
+*.crt

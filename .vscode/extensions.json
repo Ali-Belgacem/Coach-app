@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "ritwickdey.liveserver",
+    "coenraads.bracket-pair-colorizer-2",
+    "naumovs.color-highlight",
+    "irongeek.vscode-env"
+  ]
+}
