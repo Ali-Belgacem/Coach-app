@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import SideBar from "./components/SideBar";
+import Sidebar from "./components/Sidebar";
 import { Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
 import List from "./pages/List";
@@ -32,7 +32,7 @@ const App = () => {
           <hr />
           <div className="flex flex-1">
             {/* Sidebar and mobile overlay */}
-            <SideBar
+            <Sidebar
               isOpen={isSidebarOpen}
               onClose={() => setIsSidebarOpen(false)}
             />

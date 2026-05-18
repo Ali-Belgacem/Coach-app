@@ -3,8 +3,10 @@ import { assets } from "../assets/index";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLanguage } from "../useLanguage";
 
 const Confirme = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -52,7 +54,9 @@ const Confirme = () => {
       !formData.email ||
       !formData.telephone
     ) {
-      toast.error("Veuillez remplir tous les champs et sélectionner une image");
+      toast.error(
+        t("Veuillez remplir tous les champs et sélectionner une image"),
+      );
       return;
     }
 
@@ -69,7 +73,7 @@ const Confirme = () => {
 
       await axios.post("http://localhost:5000/api/clients", formDataToSend);
 
-      toast.success("Informations enregistrées avec succès !");
+      toast.success(t("Informations enregistrées avec succès !"));
 
       // Réinitialiser le formulaire
       setFormData({
@@ -87,7 +91,7 @@ const Confirme = () => {
       if (error.response?.data?.message) {
         toast.error(error.response.data.message);
       } else {
-        toast.error("Une erreur est survenue lors de l'envoi des données");
+        toast.error(t("Une erreur est survenue lors de l'envoi des données"));
       }
     } finally {
       setIsSubmitting(false);
@@ -100,20 +104,20 @@ const Confirme = () => {
       className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md"
     >
       <h1 className="text-2xl font-bold text-gray-800 mb-6">
-        Entrez vos informations
+        {t("Entrez vos informations")}
       </h1>
 
       <div className="space-y-4 mb-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Prénom
+            {t("Prénom")}
           </label>
           <input
             type="text"
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
-            placeholder="Votre prénom"
+            placeholder={t("Prénom")}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
@@ -121,14 +125,14 @@ const Confirme = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Nom
+            {t("Nom")}
           </label>
           <input
             type="text"
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
-            placeholder="Votre nom"
+            placeholder={t("Nom")}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
@@ -136,14 +140,14 @@ const Confirme = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Numéro de téléphone
+            {t("Numéro de téléphone")}
           </label>
           <input
             type="tel"
             name="telephone"
             value={formData.telephone}
             onChange={handleInputChange}
-            placeholder="Numéro de téléphone"
+            placeholder={t("Numéro de téléphone")}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
@@ -151,14 +155,14 @@ const Confirme = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Email
+            {t("Email")}
           </label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            placeholder="Email"
+            placeholder={t("Email")}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
@@ -166,7 +170,7 @@ const Confirme = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Date de naissance
+            {t("Date de naissance")}
           </label>
           <input
             type="date"
@@ -181,7 +185,7 @@ const Confirme = () => {
 
       <div className="mb-6">
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          Upload Image
+          {t("Upload Image")}
         </label>
 
         {/* Input file caché */}
@@ -213,9 +217,11 @@ const Confirme = () => {
                 className="mx-auto h-24 opacity-70 mb-2"
               />
               <p className="text-sm text-gray-500">
-                Cliquez pour uploader ou glisser-déposer
+                {t("Cliquez pour uploader ou glisser-déposer")}
               </p>
-              <p className="text-xs text-gray-400">PNG, JPG (MAX. 5MB)</p>
+              <p className="text-xs text-gray-400">
+                {t("PNG, JPG (MAX. 5MB)")}
+              </p>
             </>
           )}
         </label>
@@ -226,7 +232,7 @@ const Confirme = () => {
         disabled={isSubmitting}
         className={`w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
       >
-        {isSubmitting ? "Envoi en cours..." : "Confirmer"}
+        {isSubmitting ? t("Envoi en cours...") : t("Confirmer")}
       </button>
     </form>
   );

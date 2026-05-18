@@ -1,7 +1,10 @@
 import React from "react";
 import { assets } from "../assets";
+import { useLanguage } from "../useLanguage";
 
 const Aboutus = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="relative bg-black w-full min-h-screen p-6">
       {/* Decorative top separator */}
@@ -9,7 +12,6 @@ const Aboutus = () => {
 
       {/* Section Who is Coach Fares */}
       <div className="flex flex-col lg:flex-row gap-10 items-center mb-16">
-        
         {/* Photo */}
         <div className="lg:w-1/3 flex justify-center">
           <div className="relative">
@@ -24,9 +26,9 @@ const Aboutus = () => {
         </div>
 
         {/* Description */}
-        <div className="lg:w-2/3 text-center lg:text-left">
+        <div className="lg:w-2/3 text-center lg:text-start">
           <h1 className="text-3xl md:text-4xl font-extrabold mb-8 uppercase tracking-wider bg-gradient-to-r from-violet-300 via-purple-300 to-fuchsia-300 bg-clip-text text-transparent">
-            WHO IS COACH FARES?
+            {t("WHO IS COACH FARES?")}
           </h1>
 
           {/* Glass card info box */}
@@ -34,23 +36,33 @@ const Aboutus = () => {
             <ul className="space-y-4 text-gray-200">
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-violet-400 flex-shrink-0" />
-                <span className="text-lg md:text-xl font-bold text-violet-300">IFBB PRO COACH</span>
+                <span className="text-lg md:text-xl font-bold text-violet-300">
+                  {t("IFBB PRO COACH")}
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0" />
-                <p className="text-base md:text-lg">Internationally Certified Nutritionist</p>
+                <p className="text-base md:text-lg">
+                  {t("Internationally Certified Nutritionist")}
+                </p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0" />
-                <p className="text-base md:text-lg">Helped 200+ clients achieve their fitness goals</p>
+                <p className="text-base md:text-lg">
+                  {t("Helped 200+ clients achieve their fitness goals")}
+                </p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0" />
-                <p className="text-base md:text-lg">Specialist in lifestyle transformation programs</p>
+                <p className="text-base md:text-lg">
+                  {t("Specialist in lifestyle transformation programs")}
+                </p>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 w-2 h-2 rounded-full bg-purple-400 flex-shrink-0" />
-                <p className="text-base md:text-lg">Personal trainer for competitive athletes</p>
+                <p className="text-base md:text-lg">
+                  {t("Personal trainer for competitive athletes")}
+                </p>
               </li>
             </ul>
           </div>
@@ -60,9 +72,11 @@ const Aboutus = () => {
       {/* Section Certifications */}
       <div className="text-center">
         <h2 className="text-3xl font-bold mb-2 uppercase tracking-wider text-white">
-          My Certificates
+          {t("My Certificates")}
         </h2>
-        <p className="text-violet-400 text-sm mb-8 tracking-widest uppercase">Official Credentials</p>
+        <p className="text-violet-400 text-sm mb-8 tracking-widest uppercase">
+          {t("Official Credentials")}
+        </p>
         <div className="flex flex-wrap justify-center gap-8">
           {[assets.Certafict1, assets.Certaficat2].map((src, i) => (
             <div key={i} className="group relative">
